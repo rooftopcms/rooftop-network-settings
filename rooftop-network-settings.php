@@ -25,9 +25,6 @@
 
 add_filter( 'network_admin_menu', 'rooftop_add_settings_page', 1);
 
-function rooftop_add_gtm_page() {
-}
-
 function rooftop_add_settings_page() {
     add_menu_page( "Rooftop Setup", "Rooftop Setup", "manage_sites", "rooftop-settings", "rooftop_add_gtm_page" );
     add_submenu_page( "rooftop-settings", "GTM", "GTM", "manage_sites", "rooftop-settings-gtm", "rooftop_gtm_callback" );
