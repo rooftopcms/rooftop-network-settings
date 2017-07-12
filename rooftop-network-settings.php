@@ -93,7 +93,6 @@ EOL;
         wp_add_inline_script( 'rooftop-settings-gtm-script', $script );
     }
 }
-
 add_action( 'admin_enqueue_scripts', 'render_gtm_in_admin', 11 );
 
 
@@ -113,6 +112,22 @@ EOL;
     wp_enqueue_script( 'rooftop-settings-gtm-script', plugin_dir_url( __FILE__ )."plugin.js", array(), "1.0" );
     wp_add_inline_script( 'rooftop-settings-gtm-script', $script );
 }
-
 add_action( 'admin_enqueue_scripts', 'render_rt_attributes_in_admin', 10 );
+
+
+function render_maintenance_notice_in_dr_mode() {
+    if( "dr" === @$_ENV['WP_ENV'] ) {
+        $output = <<<EOL
+<div class="notice notice-warning" style="padding: 10px 5px">
+    <p>We're doing some maintenance on Rooftop.</p>
+    <p>Don't worry, your site is still available and everything will be back to normal in a few minutes.</p>
+</div>
+EOL;
+    }else {
+        $output = "";
+    }
+
+    echo $output;
+}
+add_action( 'login_message', 'render_maintenance_notice_in_dr_mode' );
 ?>
