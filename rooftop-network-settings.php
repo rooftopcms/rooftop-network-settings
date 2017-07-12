@@ -94,5 +94,25 @@ EOL;
     }
 }
 
-add_action( 'admin_enqueue_scripts', 'render_gtm_in_admin' );
+add_action( 'admin_enqueue_scripts', 'render_gtm_in_admin', 11 );
+
+
+function render_rt_attributes_in_admin() {
+    $user = wp_get_current_user();
+
+    $id = $user->ID;
+    $email = $user->user_email;
+
+    $script = <<<EOL
+    dataLayer = [{
+        'user-id': '${id}',
+        'user-email': '${email}'
+    }];
+EOL;
+
+    wp_enqueue_script( 'rooftop-settings-gtm-script', plugin_dir_url( __FILE__ )."plugin.js", array(), "1.0" );
+    wp_add_inline_script( 'rooftop-settings-gtm-script', $script );
+}
+
+add_action( 'admin_enqueue_scripts', 'render_rt_attributes_in_admin', 10 );
 ?>
