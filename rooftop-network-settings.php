@@ -12,13 +12,13 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Rooftop Network Settings
- * Plugin URI:        https://github.com/rooftopcms
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
- * Author:            Error
- * Author URI:        https://error.agency
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Plugin URI:        https://github.com/rooftopcms/rooftop-network-settings
+ * Description:       rooftop-network-settings adds a GTM form to the network admin panel and inserts it into site admin pages.
+ * Version:           1.2.1
+ * Author:            RooftopCMS
+ * Author URI:        https://rooftopcms.com
+ * License:           GPL-3.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       rooftop-network-settings
  * Domain Path:       /languages
  */
